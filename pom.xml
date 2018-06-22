@@ -35,6 +35,9 @@
         <module>droid-results</module>
         <module>droid-swing-ui</module>
 	    <module>droid-binary</module>
+        <module>droid-fx-ui</module>
+        <module>droid-fx-ui</module>
+        <module>droid-fx-ui</module>
     </modules>
     
     <build>

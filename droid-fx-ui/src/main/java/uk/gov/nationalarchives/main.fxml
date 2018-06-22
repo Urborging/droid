@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="uk.gov.nationalarchives.Controller">
+  <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+        <center>
+          <TabPane fx:id="profileTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" />
+        </center>
+        <top>
+          <ToolBar prefHeight="35.0" prefWidth="600.0">
+            <Button fx:id="newProfileButton" mnemonicParsing="false" text="New" />
+            <Button fx:id="openProfileButton" mnemonicParsing="false" text="Open" />
+            <Button fx:id="saveProfileButton" mnemonicParsing="false" text="Save" />
+            <Button fx:id="exportProfileButton" mnemonicParsing="false" text="Export" />
+            <Separator orientation="VERTICAL" prefHeight="30.0" />
+            <Button fx:id="addItemButton" mnemonicParsing="false" text="Add" />
+            <Button fx:id="removeItemButton" mnemonicParsing="false" text="Remove" />
+            <Separator orientation="VERTICAL" prefHeight="30.0" />
+            <Button fx:id="startIdentificationButton" mnemonicParsing="false" text="Start" />
+            <Button fx:id="pauseIdentificationButton" mnemonicParsing="false" text="Pause" />
+            <Separator orientation="VERTICAL" prefHeight="30.0" />
+            <Button fx:id="filterButton" mnemonicParsing="false" text="Filter" />
+            <CheckBox fx:id="filterOnCheckBox" mnemonicParsing="false" text="On" />
+            <Separator orientation="VERTICAL" prefHeight="30.0" />
+            <Button fx:id="reportButton" mnemonicParsing="false" text="Report" />
+          </ToolBar>
+        </top>
+      </BorderPane>
+    </center>
+    <top>
+      <AnchorPane minHeight="21.0" prefHeight="30.0" prefWidth="800.0">
+        <MenuBar prefHeight="34.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <Menu mnemonicParsing="false" text="File">
+            <MenuItem fx:id="newProfileMenuItem" mnemonicParsing="false" text="New" />
+            <MenuItem fx:id="openProfileMenuItem" mnemonicParsing="false" text="Open" />
+            <MenuItem fx:id="saveProfileMenuItem" mnemonicParsing="false" text="Save" />
+            <MenuItem fx:id="saveAsProfileMenuItem" mnemonicParsing="false" text="Save as" />
+            <MenuItem fx:id="exportProfileMenuItem" mnemonicParsing="false" text="Export all" />
+            <MenuItem fx:id="quitMenuItem" mnemonicParsing="false" text="Quit" />
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <MenuItem fx:id="addFileFoldersMenuItem" mnemonicParsing="false" text="Add file/folders" />
+            <MenuItem fx:id="removeFileFoldersMenuItem" mnemonicParsing="false" text="Remove file/folders" />
+            <SeparatorMenuItem/>
+            <MenuItem fx:id="openContainingFoldersMenuItem" mnemonicParsing="false" text="Open containing folder" />
+            <MenuItem fx:id="copyToClipboardMenuItem" mnemonicParsing="false" text="Copy to clipboard" />
+            <SeparatorMenuItem/>
+            <MenuItem fx:id="expandMenuItem" mnemonicParsing="false" text="Expand" />
+            <MenuItem fx:id="expandThreeLevels" mnemonicParsing="false" text="Expand next three levels" />
+          </Menu>
+          <Menu mnemonicParsing="false" text="Run">
+            <MenuItem fx:id="startIdentificationMenuItem" mnemonicParsing="false" text="Start identification" />
+            <MenuItem fx:id="pauseIdentificationMenuItem" mnemonicParsing="false" text="Pause identification" />
+          </Menu>
+          <Menu mnemonicParsing="false" text="Filter">
+            <MenuItem fx:id="filterOnMenuItem" mnemonicParsing="false" text="Filter on" />
+            <SeparatorMenuItem/>
+            <MenuItem fx:id="editFilterMenuItem" mnemonicParsing="false" text="Edit filter" />
+            <MenuItem fx:id="copyFilterToAllMenuItem" mnemonicParsing="false" text="Copy filter to all profiles" />
+          </Menu>
+          <Menu mnemonicParsing="false" text="Report">
+            <MenuItem fx:id="generateReportMenuItem" mnemonicParsing="false" text="Generate report" />
+          </Menu>
+          <Menu mnemonicParsing="false" text="Tools">
+            <MenuItem fx:id="checkSignatureUpdatesMenuItem" mnemonicParsing="false" text="Check for signature updates" />
+            <MenuItem fx:id="installSignatureFileMenuItem" mnemonicParsing="false" text="Install signature file" />
+            <SeparatorMenuItem/>
+            <MenuItem fx:id="preferencesMenuItem" mnemonicParsing="false" text="Preferences" />
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" text="Help" />
+          </Menu>
+        </MenuBar>
+      </AnchorPane>
+    </top>
+  </BorderPane>
+</AnchorPane>

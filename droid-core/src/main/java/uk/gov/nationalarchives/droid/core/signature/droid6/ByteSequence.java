@@ -84,6 +84,7 @@ package uk.gov.nationalarchives.droid.core.signature.droid6;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -171,7 +172,7 @@ public class ByteSequence extends uk.gov.nationalarchives.droid.core.signature.x
     /**
     *Use static log for optimmal performance..
      */
-    private  static final Log LOGGER = LogFactory.getLog(ByteSequence.class);
+    private static final Log LOGGER = LogFactory.getLog(ByteSequence.class);
     
     private List<SubSequence> subSequences = new ArrayList<SubSequence>();
     private SubSequence[] sequences = new SubSequence[0];
@@ -424,9 +425,9 @@ public class ByteSequence extends uk.gov.nationalarchives.droid.core.signature.x
      */
     public final boolean matches(final ByteReader targetFile, final long maxBytesToScan) {
         boolean matchResult = true;
-
         // Use a local reference to the sequence list for better performance:
         final SubSequence[] seq = this.sequences;
+
         boolean fixedSubsequence;
         if (reverseOrder) {
             fixedSubsequence = this.anchoredToEOF;
@@ -435,12 +436,8 @@ public class ByteSequence extends uk.gov.nationalarchives.droid.core.signature.x
             for (int subSequenceIndex = seq.length - 1; matchResult && subSequenceIndex >= 0; subSequenceIndex--) {
                 final SubSequence subseq = seq[subSequenceIndex];
                 final long currentFilePos = targetFile.getFileMarker();
-               /* matchResult = subseq.findSequenceFromPosition(
-                        currentFilePos, targetFile, maxBytesToScan, false, fixedSubsequence);
-                 */
                 matchResult = subseq.findSequenceFromPosition(
                          currentFilePos, targetFile, maxBytesToScan, false, fixedSubsequence);
-                        
                 fixedSubsequence = false;
             }
         } else {
@@ -451,12 +448,8 @@ public class ByteSequence extends uk.gov.nationalarchives.droid.core.signature.x
                 for (int subSequenceIndex = 0; matchResult && subSequenceIndex < seq.length; subSequenceIndex++) {
                     final SubSequence subseq = seq[subSequenceIndex];
                     final long currentFilePos = targetFile.getFileMarker();
-                    /*matchResult = subseq.findSequenceFromPosition(
-                            currentFilePos, targetFile, maxBytesToScan, fixedSubsequence, false);
-                    */
                     matchResult = subseq.findSequenceFromPosition(
                             currentFilePos, targetFile, maxBytesToScan, fixedSubsequence, false);
-
                     fixedSubsequence = false;
                 }
             } catch (IOException io) {
@@ -489,7 +482,6 @@ public class ByteSequence extends uk.gov.nationalarchives.droid.core.signature.x
                                     subSeqExpression,
                                     minSeqOffset, subSequenceIndex == 0 ? maxSeqOffset : -1);
         }
-        
         return regularExpression.toString().trim();
     }
 
